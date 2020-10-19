@@ -1,4 +1,3 @@
-
 import copy
 
 def is_numeric(value):
@@ -12,7 +11,6 @@ def is_numeric(value):
 class SampleUnit(object):
     __value = None
     __rank = None
-
 
     def set_value(self, value):
         if is_numeric(value):
@@ -88,8 +86,8 @@ def is_sample(sample):
     return False
 
 
+
 class MannWhitneyUTest(object):
-    
     __sample_one = None
     __sample_two = None
 
@@ -260,3 +258,34 @@ class MannWhitneyUTest(object):
 
     def __init__(self):
         self.__is_ready_for_work = False
+
+# Debugging block begins
+samle_1_data = [
+    102,
+    105,
+    109,
+    90,
+    130,
+    117,
+    117,
+    125,
+    134,
+    109
+] 
+
+sample_2_data = [
+    121,
+    120,
+    134,
+    119,
+    115,
+    106,
+    107,
+    101,
+    97,
+    117
+]
+
+
+
+# Debugging block ends
