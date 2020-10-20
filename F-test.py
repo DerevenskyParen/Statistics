@@ -1,7 +1,7 @@
 import numpy
 
 class readtestF:
-    # This class reads a file. Must get only one name.txt to be readen correctly, next argument takes a number of degrees of freedom(Default k = 1)
+   #класс принимает (название_файла.txt, степнь свободы выборки(по умолчанию = 1))
     
     def __init__(self, name = None, freedom = 1):
         self.name = name
@@ -13,28 +13,32 @@ class readtestF:
             self.readen[i] = self.readen[i].split(',')
             self.readen[i] = '.'.join(self.readen[i])
             self.readen[i] = float(self.readen[i])
-    # Calculates a dispersion
+    
     def Dispersion(self):
+        # Метод вычисляет дисперсию выборки
         return numpy.var(self.readen, ddof = self.freedom)
 
 class Ftest:
-    # Takes a list of two elements, whitch which are the sample variances.
+    # Класс принимает список из двух элементов
     def __init__(self, dispersions = None):
         self.dispersions = dispersions
-    #Returns 
+    
     def ReturnF(self):
+        #Метод считает экспериментальную величину Фишера(относительная).
         if self.dispersions[0] > self.dispersions[1]:
             return self.dispersions[0]/self.dispersions[1]
         else:
             return self.dispersions[1]/self.dispersions[0]
 
-file1 = readtestF('111.txt').Dispersion()
-file2 = readtestF('222.txt').Dispersion() 
+#Например можно вычислить критерий Фишера так:
+file1 = readtestF('Vyborka1.txt').Dispersion()
+file2 = readtestF('Vyborka2.txt').Dispersion() 
+#file1 и file2 содержат дисперсии каждой выборки
 print(file1)
 print(file2)
-D = [file1, file2]
-
-result = Ftest(D)
+#убедились, что это так. Наши переменные содержат некоторое число(Дисперсию выборки)
+List = [file1, file2]
+result = Ftest(List)
 print(result.ReturnF())
 
 
