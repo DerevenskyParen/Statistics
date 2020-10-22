@@ -1,3 +1,10 @@
+#Импортер 
+# 1 задание
+# Ковалев Ваганов
+
+
+
+
 import os
 import re
 import openpyxl
@@ -39,7 +46,7 @@ else :
     #  Считывание данных из Excel с проверкой значений
     if extension == 'xlsx':
         wb = openpyxl.reader.excel.load_workbook(filename = data_path, data_only = True)         
-        ws = wb.active                                                   #                 Присваиваем значения только активного листа
+        ws = wb.active                                                                             #  Присваиваем значения только активного листа
 
         #  Запись из строк, начиная с 3-й из разных столбцов в разные выборки
         for row in ws.iter_rows(min_row=3, min_col=1, max_row=ws.max_row, max_col=ws.max_column ):
@@ -48,8 +55,6 @@ else :
                     vyborka2.append(row[2].value)
     else :
          print("false")
-print(vyborka1)
-print(vyborka2)
 
 
 
